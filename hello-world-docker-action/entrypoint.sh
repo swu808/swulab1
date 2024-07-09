@@ -1,5 +1,7 @@
-#!/bin/sh -l
+FROM alpine:3.10
 
-echo "hello $1"
+COPY entrypoint.sh /entrypoint.sh
 
-echo "time=$(date)" >> $GITHUB_OUTPUT
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
