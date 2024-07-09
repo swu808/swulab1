@@ -1,4 +1,4 @@
-Name:  GitHub Actions Demo
+name:  GitHub Actions Demo
 on: 
     push:
       branches: [main]        
@@ -8,16 +8,18 @@ on:
       branches: [main]
     
     # Scheduled events
-    Schedule:
+    
+    schedule:
       - cron:  '15 6 * * 0'
 
     # Manual Events
     workflow_dispatch:
               
-Jobs:  
+jobs:  
     Build:
-    runs on: ubuntu-latest  
-    Steps: 
+      runs-on: ubuntu-latest  
+      steps: 
+    
       - run: |
           echo "🎉 The job was triggered by event: ${{ github.event_name }}"
           echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ." 
